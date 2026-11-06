@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TruthLensAI - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="index.html">🔍 Checker</a>
+    <a href="dashboard.html" class="active">📊 Dashboard</a>
+  </nav>
+
+  <main class="container wide">
+    <header>
+      <h1>📊 Dashboard</h1>
+      <p class="subtitle">Aapke saare checks aur model ki performance</p>
+    </header>
+
+    <div id="status" class="status"></div>
+
+    <!-- Stat tiles -->
+    <section class="tiles">
+      <div class="tile"><div class="tile-label">Total checks</div><div id="tTotal" class="tile-value">–</div></div>
+      <div class="tile"><div class="tile-label">❌ Fake mili</div><div id="tFake" class="tile-value">–</div></div>
+      <div class="tile"><div class="tile-label">✅ Real mili</div><div id="tReal" class="tile-value">–</div></div>
+      <div class="tile"><div class="tile-label">Avg confidence</div><div id="tConf" class="tile-value">–</div></div>
+    </section>
+
+    <!-- Daily checks -->
+    <h2>Pichhle 14 din ke checks</h2>
+    <div class="card">
+      <div class="legend">
+        <span><i class="sw s-fake"></i>Fake</span>
+        <span><i class="sw s-real"></i>Real</span>
+      </div>
+      <div id="dailyChart" class="vchart"></div>
+    </div>
+
+    <!-- Model comparison -->
+    <h2>Model comparison (test data par accuracy)</h2>
+    <div class="card">
+      <p id="modelMeta" class="meta"></p>
+      <div id="modelChart" class="hchart"></div>
+      <div class="table-wrap">
+      <table class="table" id="modelTable">
+        <thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>Train time</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- History -->
+    <h2 class="row-head">
+      Recent checks
+      <button id="clearHistory" class="secondary small">History clear karo</button>
+    </h2>
+    <div class="card table-wrap">
+      <table class="table" id="historyTable">
+        <thead><tr><th>Time</th><th>Source</th><th>News</th><th>Result</th><th>Confidence</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="tooltip" class="tooltip hidden"></div>
+  <script src="common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TruthLensAI - Fake News Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="index.html" class="active">🔍 Checker</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>🔍 TruthLens<span>AI</span></h1>
+      <p class="subtitle">News article ya uska link do, AI batayega REAL hai ya FAKE, aur kyun</p>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="text" role="tab">📝 Text</button>
+      <button class="tab" data-tab="url" role="tab">🔗 URL</button>
+    </div>
+
+    <div id="panel-text" class="panel">
+      <textarea id="newsText" placeholder="Yahan news article ka poora text paste karo..."></textarea>
+      <div class="hint"><span id="wordCount">0</span> words · Ctrl+Enter se check karo</div>
+    </div>
+
+    <div id="panel-url" class="panel hidden">
+      <input id="newsUrl" type="url" placeholder="https://example.com/news/article-link">
+      <div class="hint">App khud website se article ka text nikal kar check karega</div>
+    </div>
+
+    <div class="actions">
+      <button id="checkBtn">Check News</button>
+      <button id="clearBtn" class="secondary">Clear</button>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <section id="result" class="result hidden">
+      <div id="verdict" class="verdict"></div>
+      <div id="modelName" class="model-name"></div>
+      <div id="warning" class="warning hidden"></div>
+
+      <div class="bar-label"><span>Fake</span><span id="fakePct"></span></div>
+      <div class="bar"><div id="fakeBar" class="fill fake"></div></div>
+      <div class="bar-label"><span>Real</span><span id="realPct"></span></div>
+      <div class="bar"><div id="realBar" class="fill real"></div></div>
+
+      <h3>🧠 AI ne ye result kyun diya?</h3>
+      <div class="explain">
+        <div>
+          <div class="explain-title fake-t">❌ FAKE ki taraf ishara karne wale shabd</div>
+          <div id="fakeWords" class="chips"></div>
+        </div>
+        <div>
+          <div class="explain-title real-t">✅ REAL ki taraf ishara karne wale shabd</div>
+          <div id="realWords" class="chips"></div>
+        </div>
+      </div>
+
+      <h3 id="articleHeading">📄 Article (shabd highlight kiye gaye)</h3>
+      <div id="articleTitle" class="article-title"></div>
+      <div id="highlighted" class="highlighted"></div>
+    </section>
+
+    <footer>
+      Note: Ye model likhne ke style se andaza lagata hai, facts check nahi karta.
+      Sirf English news par train hua hai. Lamba article dene par result behtar aata hai.
+    </footer>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
